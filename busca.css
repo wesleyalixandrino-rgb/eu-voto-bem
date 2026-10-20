@@ -1,0 +1,40 @@
+/* Complementa o visual original da página. */
+[hidden] { display: none !important; }
+a { color: #174e88; text-underline-offset: 3px; overflow-wrap: anywhere; }
+a:hover { color: #0c3159; }
+button, input { font: inherit; }
+button {
+  background: #142339; color: white; border: 1px solid #142339;
+  border-radius: 12px; padding: 14px 22px; cursor: pointer; min-height: 48px;
+}
+button:hover:not(:disabled) { background: #284566; }
+button:disabled { opacity: .55; cursor: default; }
+:focus-visible { outline: 3px solid #bd7700; outline-offset: 4px; }
+#busca { max-width: 700px; margin: 34px auto 0; text-align: left; }
+#busca label { font-weight: bold; }
+.search-row { display: flex; gap: 12px; margin-top: 12px; }
+#busca .search { margin: 0; max-width: none; min-width: 0; }
+.help { font-size: 14px; color: #566174; line-height: 1.6; }
+.sources { margin: 24px auto; padding: 20px; background: #eaf0f7; border-radius: 12px; text-align: left; line-height: 1.6; }
+.sources h2 { font-size: 16px; margin: 0 0 8px; }
+.sources p { margin-bottom: 4px; font-size: 14px; }
+#resultados { margin-top: 36px; text-align: left; }
+#resultados h2 { font-size: 22px; }
+#status { line-height: 1.6; }
+.results-list { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.person { background: white; border: 1px solid #dce1e9; border-radius: 14px; padding: 20px; display: flex; gap: 16px; align-items: flex-start; }
+.portrait { width: 72px; min-width: 72px; height: 96px; border-radius: 8px; background: #eaf0f7; overflow: hidden; }
+.portrait img { width: 100%; height: 100%; object-fit: cover; }
+.portrait span { display: flex; height: 100%; align-items: center; text-align: center; font-size: 12px; color: #566174; padding: 6px; }
+.person h3 { margin: 0 0 10px; font-size: 19px; overflow-wrap: anywhere; }
+.person p { margin: 6px 0; line-height: 1.5; }
+.person a { display: block; margin-top: 12px; line-height: 1.5; }
+#paginacao { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 14px; margin-top: 24px; }
+.card p { line-height: 1.6; }
+@media (max-width: 620px) {
+  body main { padding: 36px 18px; }
+  .search-row { flex-direction: column; }
+  .results-list { grid-template-columns: 1fr; }
+  .person { padding: 16px; gap: 12px; }
+  body .cards { margin-top: 36px; grid-template-columns: 1fr; }
+}

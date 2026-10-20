@@ -5,7 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Eu voto bem? | Transparência política</title>
-  <meta name="description" content="Consulte informações públicas sobre políticos, votações e processos judiciais.">
+  <meta name="description" content="Busque deputados federais pelo nome e consulte partido, estado e perfil nas fontes oficiais da Câmara dos Deputados.">
+  <link rel="stylesheet" href="./busca.css">
+  <script type="module" src="./busca.mjs"></script>
   <style>
     * { box-sizing: border-box; }
 
@@ -92,41 +94,72 @@
 
     <p class="subtitle">
       Informação pública, organizada e acessível.
-      Consulte a atuação política e acompanhe
-      informações sobre processos judiciais.
+      Comece buscando deputados federais pelo nome,
+      com informações da Câmara dos Deputados.
     </p>
 
-    <input
-      class="search"
-      type="search"
-      placeholder="Busca de políticos — em desenvolvimento"
-      aria-label="Busca de políticos em desenvolvimento"
-      disabled
-    >
+    <form id="busca" role="search">
+      <label for="nome">Nome do deputado ou da deputada federal</label>
+      <div class="search-row">
+        <input class="search" id="nome" name="nome" type="search"
+          placeholder="Digite um nome ou parte dele" required minlength="2" maxlength="100"
+          aria-describedby="escopo" autocomplete="off">
+        <button type="submit">Buscar</button>
+      </div>
+      <p id="escopo" class="help">Busca na legislatura atual. Outros cargos e períodos ainda não estão disponíveis.</p>
+    </form>
+
+    <section class="sources" aria-labelledby="fontes-titulo">
+      <h2 id="fontes-titulo">Fontes oficiais desta consulta</h2>
+      <a href="https://dadosabertos.camara.leg.br/">Dados Abertos da Câmara</a>
+      <span aria-hidden="true"> · </span>
+      <a href="https://dadosabertos.camara.leg.br/swagger/api.html">Documentação da API</a>
+      <p id="consulta-data">Nenhuma consulta realizada nesta página.</p>
+      <a id="consulta-link" hidden>Ver os dados desta consulta na fonte oficial</a>
+    </section>
+
+    <section id="resultados" aria-labelledby="resultados-titulo" aria-busy="false">
+      <h2 id="resultados-titulo">Resultados da busca</h2>
+      <p id="status" role="status" aria-live="polite" aria-atomic="true">Digite um nome acima para começar.</p>
+      <ul id="lista" class="results-list"></ul>
+      <nav id="paginacao" aria-label="Páginas dos resultados" hidden>
+        <button id="anterior" type="button">Página anterior</button>
+        <span id="pagina"></span>
+        <button id="proxima" type="button">Próxima página</button>
+      </nav>
+    </section>
+    <noscript><p>Ative o JavaScript para buscar aqui ou consulte diretamente o <a href="https://www.camara.leg.br/deputados">site da Câmara</a>.</p></noscript>
 
     <section class="cards">
       <div class="card">
         <h2>🏛️ Atuação política</h2>
-        <p>Projetos legislativos e registros de votação.</p>
+        <p>Consulta de nome, partido, UF e perfil oficial disponível.</p>
+        <p>Projetos legislativos e registros de votação: <strong>ainda não disponíveis</strong>.</p>
       </div>
 
       <div class="card">
         <h2>⚖️ Processos judiciais</h2>
-        <p>Assuntos, situação processual e decisões públicas.</p>
+        <p><strong>Ainda não disponível.</strong> Processos por tema, condenações definitivas, absolvições e anulações não foram integrados.</p>
+        <p>Não exibimos contagens ou conclusões judiciais sem dados verificados.</p>
       </div>
 
       <div class="card">
         <h2>🕒 Monitoramento do STF</h2>
-        <p>Relatorias e tempo desde a última movimentação pública.</p>
+        <p><strong>Ainda não disponível.</strong> Relatorias e movimentações do STF não foram integradas.</p>
       </div>
     </section>
 
     <p class="notice">
-      Dados atualizados mensalmente, após integração
-      e validação das fontes oficiais.
+      <strong>Atualização mensal: planejada, ainda não implementada.</strong>
+      Não há uma base mensal consolidada nesta versão.
+      A busca consulta a API da Câmara a cada solicitação e mostra a data e a hora
+      de recebimento da resposta. A fonte pode utilizar cache; essa data não
+      indica quando a Câmara alterou cada registro.
       <br>
       A plataforma está em desenvolvimento.
       A existência de um processo não significa condenação.
+      A indisponibilidade de dados não significa ausência de processos ou condenações.
+      Anulação não equivale a absolvição.
     </p>
   </main>
 
