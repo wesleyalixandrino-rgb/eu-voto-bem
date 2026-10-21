@@ -1,0 +1,49 @@
+/* Página de perfil do deputado. Mantém o visual da página inicial. */
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Arial, sans-serif; background: #f5f6fa; color: #172033; }
+header { background: #142339; padding: 22px 8%; font-size: 24px; font-weight: bold; }
+header a { color: white; text-decoration: none; }
+main { max-width: 960px; margin: 0 auto; padding: 40px 24px 70px; }
+footer { text-align: center; padding: 30px; color: #626d7b; font-size: 13px; }
+.voltar { margin: 0 0 20px; }
+h2 { font-size: 24px; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; margin-top: 50px; }
+.card { background: white; padding: 25px; border-radius: 14px; box-shadow: 0 3px 15px #0000000a; }
+.card h2 { font-size: 19px; }
+.card p { line-height: 1.6; }
+.notice { margin-top: 40px; font-size: 14px; color: #626d7b; line-height: 1.7; }
+
+.perfil { display: flex; gap: 24px; align-items: flex-start; background: white; border: 1px solid #dce1e9; border-radius: 14px; padding: 24px; }
+.perfil .portrait { width: 120px; min-width: 120px; height: 160px; }
+.perfil-info { min-width: 0; }
+.perfil h1 { margin: 0 0 10px; font-size: clamp(26px, 4.5vw, 36px); overflow-wrap: anywhere; }
+.perfil-info p { margin: 6px 0; line-height: 1.5; }
+
+#temas { margin-top: 40px; }
+.aviso { background: #fff7e6; border: 1px solid #ecd29b; border-radius: 12px; padding: 16px 20px; line-height: 1.6; }
+.aviso p { margin: 6px 0; }
+.aviso ul { margin: 8px 0; padding-left: 22px; }
+.tema { margin-top: 32px; }
+.tema h3 { font-size: 21px; margin: 0 0 6px; }
+.tema-explicacao { color: #566174; line-height: 1.6; margin: 6px 0 12px; }
+.tema-resumo { font-weight: bold; margin: 10px 0; }
+.tema-vazio { background: #eaf0f7; border-radius: 12px; padding: 14px 18px; line-height: 1.6; }
+.propostas { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+.proposta { background: white; border: 1px solid #dce1e9; border-radius: 14px; padding: 18px 20px; line-height: 1.55; }
+.proposta h4 { margin: 0 0 4px; font-size: 18px; }
+.proposta .tipo { display: block; font-weight: normal; font-size: 14px; color: #566174; margin-top: 2px; }
+.proposta p { margin: 8px 0; }
+.proposta .papel { font-weight: bold; }
+.proposta .motivo { font-size: 14px; color: #566174; }
+.proposta .links { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 12px; }
+.proposta .links a { display: inline; margin: 0; }
+.pendente { color: #566174; font-style: italic; }
+
+@media (max-width: 620px) {
+  header { padding: 18px 18px; }
+  main { padding: 28px 18px 50px; }
+  .perfil { flex-direction: column; padding: 18px; }
+  .perfil .portrait { width: 96px; min-width: 96px; height: 128px; }
+  .cards { margin-top: 36px; grid-template-columns: 1fr; }
+  .proposta { padding: 16px; }
+}

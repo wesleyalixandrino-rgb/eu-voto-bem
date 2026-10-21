@@ -37,6 +37,7 @@ function deputyCard(deputy) {
     node('h3', deputy.nome),
     node('p', 'Deputado(a) federal'),
     node('p', `Partido: ${deputy.siglaPartido || 'não informado'} · UF: ${deputy.siglaUf || 'não informada'}`),
+    link('Ver perfil e propostas por tema', `./deputado.html?id=${deputy.id}`),
     link('Ver perfil detalhado na Câmara', `https://www.camara.leg.br/deputados/${deputy.id}`),
     link('Dados oficiais deste parlamentar', `${API}/${deputy.id}`),
   );

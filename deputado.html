@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil do deputado | Eu voto bem?</title>
+  <meta name="description" content="Perfil de deputado federal com dados da Câmara dos Deputados e propostas apresentadas por tema, como maioridade penal e escala 6x1.">
+  <link rel="stylesheet" href="./busca.css">
+  <link rel="stylesheet" href="./deputado.css">
+  <script type="module" src="./deputado.mjs"></script>
+</head>
+<body>
+  <header><a href="./">Eu voto bem?</a></header>
+
+  <main>
+    <p class="voltar"><a href="./">← Voltar para a busca</a></p>
+
+    <p id="status" role="status" aria-live="polite">Carregando dados da Câmara dos Deputados…</p>
+    <button id="tentar-de-novo" type="button" hidden>Tentar novamente</button>
+
+    <section id="perfil" class="perfil" aria-labelledby="perfil-nome" hidden>
+      <div id="perfil-foto" class="portrait"></div>
+      <div class="perfil-info">
+        <h1 id="perfil-nome"></h1>
+        <p>Deputado(a) federal</p>
+        <p id="perfil-partido"></p>
+        <p id="perfil-mandato"></p>
+        <p id="perfil-gabinete"></p>
+        <p id="perfil-contato"></p>
+        <p><a id="perfil-camara" href="#">Ver perfil completo no site da Câmara</a></p>
+        <p><a id="perfil-api" href="#">Dados oficiais deste parlamentar</a></p>
+        <p id="perfil-data" class="help"></p>
+      </div>
+    </section>
+
+    <section id="temas" aria-labelledby="temas-titulo" aria-busy="false" hidden>
+      <h2 id="temas-titulo">Atuação por tema</h2>
+      <p>
+        Mostramos as propostas apresentadas ou assinadas por este deputado sobre cada tema,
+        com o resumo oficial. Quando houver dúvida, o link para a Câmara traz o texto completo.
+      </p>
+      <div class="aviso aviso-votos">
+        <p><strong>Apresentar, assinar e votar são coisas diferentes.</strong></p>
+        <ul>
+          <li><strong>Apresentar</strong> uma proposta (autor ou coautor) mostra que o deputado quis levar o assunto à discussão.</li>
+          <li><strong>Assinar em apoio</strong> ajuda uma proposta a ser protocolada, mas não é a mesma coisa que ser autor.</li>
+          <li><strong>Votar</strong> acontece depois, em plenário ou comissão. <strong>Votações ainda não estão disponíveis aqui</strong>; por isso não indicamos como o deputado votou.</li>
+        </ul>
+        <p>Não encontrar propostas sobre um tema não significa que o deputado seja contra ou a favor dele.</p>
+      </div>
+      <p id="temas-status" role="status" aria-live="polite">Buscando propostas na Câmara…</p>
+      <div id="temas-lista"></div>
+      <p id="temas-escopo" class="help"></p>
+      <button id="temas-tentar" type="button" hidden>Tentar novamente</button>
+    </section>
+
+    <section class="cards" aria-label="Módulos ainda não disponíveis">
+      <div class="card">
+        <h2>🗳️ Votações</h2>
+        <p><strong>Ainda não disponível.</strong> Os votos nominais deste deputado não foram integrados.</p>
+      </div>
+      <div class="card">
+        <h2>⚖️ Processos judiciais</h2>
+        <p><strong>Ainda não disponível.</strong> Processos por tema, condenações definitivas, absolvições e anulações não foram integrados.</p>
+        <p>Não exibimos contagens ou conclusões judiciais sem dados verificados.</p>
+      </div>
+      <div class="card">
+        <h2>🕒 Monitoramento do STF</h2>
+        <p><strong>Ainda não disponível.</strong> Relatorias e movimentações do STF não foram integradas.</p>
+      </div>
+    </section>
+
+    <p class="notice">
+      <strong>Atualização mensal: planejada, ainda não implementada.</strong>
+      Não há uma base mensal consolidada nesta versão. Esta página consulta a API da Câmara
+      a cada visita e mostra a data e a hora de recebimento da resposta. A fonte pode utilizar
+      cache; essa data não indica quando a Câmara alterou cada registro.
+      <br>
+      A existência de um processo não significa condenação.
+      A indisponibilidade de dados não significa ausência de processos ou condenações.
+      Anulação não equivale a absolvição.
+    </p>
+    <noscript><p>Ative o JavaScript para ver os dados aqui ou consulte diretamente o <a href="https://www.camara.leg.br/deputados">site da Câmara</a>.</p></noscript>
+  </main>
+
+  <footer>
+    Eu voto bem? — Projeto independente de transparência pública.
+  </footer>
+</body>
+</html>
